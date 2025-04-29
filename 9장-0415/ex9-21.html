@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>키 이벤트 응용</title>
+    <style>
+        td {
+            width: 50px;
+            height: 50px;
+            border: 1px solid orchid;
+        }
+    </style>
+    <script>
+        let tds;
+        let prevIndex = 0, index = 0;
+
+        // 랜덤 색상 생성 함수
+        function getRandomColor() {
+            const letters = "0123456789ABCDEF";
+            let color = "#";
+            for (let i = 0; i < 6; i++) {
+                color += letters[Math.floor(Math.random() * 16)];
+            }
+            return color;
+        }
+
+        window.onload = function () {
+            tds = document.getElementsByTagName("td");
+            tds[index].style.backgroundColor = getRandomColor();
+        }
+
+        window.onkeydown = function (e) {
+            switch (e.key) {
+                case "ArrowDown":
+                    if (index >= 90) return; // 마지막 행
+                    index += 10;
+                    break;
+                case "ArrowUp":
+                    if (index < 10) return; // 첫 번째 행
+                    index -= 10;
+                    break;
+                case "ArrowLeft":
+                    if (index % 10 == 0) return; // 첫 열
+                    index--;
+                    break;
+                case "ArrowRight":
+                    if (index % 10 == 9) return; // 마지막 열
+                    index++;
+                    break;
+            }
+
+            tds[prevIndex].style.backgroundColor = "white";
+            tds[index].style.backgroundColor = getRandomColor();
+            prevIndex = index;
+        }
+    </script>
+</head>
+<body>
+    <h3>상하좌우 키로 셀 이동하기</h3>
+    <hr>
+    <table>
+        <!-- 10행 x 10열 생성 -->
+        <!-- 자바스크립트 없이도 그냥 손으로 10x10 짜면 됨 -->
+        <!-- 여긴 자동 생성으로 해도 되지만 간단하게 직접 씀 -->
+        <!-- 반복문 쓰면 더 깔끔하게 할 수 있음! -->
+        <!-- 여기는 HTML만 쓰는 방식 -->
+        <!-- 아래는 10줄 -->
+        <tr><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+        <tr><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+        <tr><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+        <tr><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+        <tr><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+        <tr><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+        <tr><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+        <tr><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+        <tr><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+        <tr><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+    </table>
+</body>
+</html>

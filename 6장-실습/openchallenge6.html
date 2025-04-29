@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>별 문자 출력하기</title>
+    </head>
+    <body>
+        <h3>별 문자 출력하기</h3>
+       
+            <script>
+                function star(num){
+                    num = parseInt(num); // 문자열을 숫자로 변환!
+                      // 입력 검사
+            if (isNaN(num) || num <= 0 || input.includes(".") || input.trim() === "") {
+                document.write("입력 오류입니다! 양의 정수를 입력하세요.");
+                return;
+            }
+                   
+                    for (let i = 1; i <= num; i++) {
+                let line = "";
+                for (let j = 0; j < i; j++) {
+                    line += "*";
+                }
+                document.write(line + "<br>");
+            }
+
+
+                }
+               
+            </script>
+        
+        <hr>
+        <script>
+             let num = prompt("정수를 입력하세요",0);
+            star(num);
+        </script>
+        
+    </body>
+</html>
+
+
+1. 직각 삼각형 (왼쪽 아래)
+for (let i = 1; i <= n; i++) {
+    for (let j = 1; j <= i; j++) {
+        document.write("*");
+    }
+    document.write("<br>");
+}
+
+2. 직각 삼각형 (오른쪽 아래)
+   *
+  **
+ ***
+****
+for (let i = 1; i <= n; i++) {
+    for (let j = 1; j <= n - i; j++) {
+        document.write("&nbsp;");
+    }
+    for (let k = 1; k <= i; k++) {
+        document.write("*");
+    }
+    document.write("<br>");
+}
+
+
+3. 역삼각형 (왼쪽 위)
+for (let i = n; i >= 1; i--) {
+    for (let j = 1; j <= i; j++) {
+        document.write("*");
+    }
+    document.write("<br>");
+}
+
+4. 역삼각형 (오른쪽 위)
+for (let i = 0; i < n; i++) {
+    for (let j = 0; j < i; j++) {
+        document.write("&nbsp;");
+    }
+    for (let k = 0; k < n - i; k++) {
+        document.write("*");
+    }
+    document.write("<br>");
+}
+
+5. 피라미드 (정삼각형)
+for (let i = 1; i <= n; i++) {
+    for (let j = 1; j <= n - i; j++) {
+        document.write("&nbsp;");
+    }
+    for (let k = 1; k <= 2 * i - 1; k++) {
+        document.write("*");
+    }
+    document.write("<br>");
+}
+
+6. 다이아몬드
+// 위쪽
+for (let i = 1; i <= n; i++) {
+    for (let j = 1; j <= n - i; j++) document.write("&nbsp;");
+    for (let k = 1; k <= 2 * i - 1; k++) document.write("*");
+    document.write("<br>");
+}
+// 아래쪽
+for (let i = n - 1; i >= 1; i--) {
+    for (let j = 1; j <= n - i; j++) document.write("&nbsp;");
+    for (let k = 1; k <= 2 * i - 1; k++) document.write("*");
+    document.write("<br>");
+}
+
+7. 모래시계
+// 위쪽
+for (let i = 0; i < n; i++) {
+    for (let j = 0; j < i; j++) document.write("&nbsp;");
+    for (let k = 0; k < 2 * (n - i) - 1; k++) document.write("*");
+    document.write("<br>");
+}
+// 아래쪽
+for (let i = 1; i < n; i++) {
+    for (let j = 1; j < n - i; j++) document.write("&nbsp;");
+    for (let k = 0; k < 2 * i + 1; k++) document.write("*");
+    document.write("<br>");
+}

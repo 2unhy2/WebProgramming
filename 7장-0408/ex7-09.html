@@ -15,7 +15,7 @@
             }
             function withdraw2(money, callback){
                 if(this.balance < money){
-                    throw//예외처리 할 줄 알아야됨
+                    throw new Error("잔액이 부족합니다!");
                 }
             }
 
